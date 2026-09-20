@@ -11,9 +11,9 @@ from pydantic import BaseModel
 from typing import Optional, List
 
 # ---------------- CONFIG ----------------
-
+#replace this with your AnythingLLM endpoint and API key
 ANYTHING_LLM_URL = "http://localhost:3001/api/v1/workspace/foodie/chat"
-ANYTHING_LLM_API_KEY = "KJ8NKJ9-KD84RN8-KM8E54F-HFHVJVR"
+ANYTHING_LLM_API_KEY = "KJ8NKJ9-KD84RN8-KM8E54F-HFHVJVRwiuhwihwefekjwn"
 
 app = FastAPI(title="Disease Medical Analysis Bridge (AnythingLLM Powered)")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
@@ -78,7 +78,7 @@ async def chat_endpoint(req: ChatRequest):
             "You are an expert AI medical assistant. Using the provided DISEASE DATA CONTEXT, "
             "directly answer the USER QUESTION. Break down the symptoms, explain what the disease is, "
             "highlight what medicines or clinical care are relevant, and clearly detail what foods "
-            "they MUST avoid to protect their recovery process. Speak clearly, supportive, and informative."
+            "they MUST avoid to protect their recovery process. Speak clearly, supportive, and informative. if no context is provided proeprly , say 'I'm sorry, but I don't have the necessary information to answer that question.'"
         )
         
         full_message = f"{system_instruction}\n\n"

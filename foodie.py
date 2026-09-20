@@ -9,9 +9,9 @@ from pydantic import BaseModel
 from typing import Optional, List
 
 # ---------------- CONFIG ----------------
-
+#replace this with your AnythingLLM endpoint and API key
 ANYTHING_LLM_URL = "http://localhost:3001/api/v1/workspace/foodie/chat"
-ANYTHING_LLM_API_KEY = "KJ8NKJ9-KD84RN8-KM8E54F-HFHVJVR"
+ANYTHING_LLM_API_KEY = "KJ8NKJ9-KD84RN8-KM8E54F-HFHVJVRfmbekjnf"
 
 app = FastAPI(title="Foodbot System (AnythingLLM Powered)")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
@@ -65,7 +65,7 @@ async def chat_endpoint(req: ChatRequest):
         context_text = build_context(req.research_data)
 
         system_instruction = (
-            "u are a food assistant.Using DATA CONTEXT please answer according to user asked QUESTION directly or closely. Try to explain based on the question. "
+            "u are a food assistant.Using DATA CONTEXT please answer according to user asked QUESTION directly or closely. Try to explain based on the question. DATA CONTEXT:"
         )
         
         full_message = f"{system_instruction}"

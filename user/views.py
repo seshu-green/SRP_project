@@ -3781,6 +3781,7 @@ def calculate_disease_probabilities(user_sentence):
             # 🔥 CHANGED: Only display matching records with a confidence STRICTLY above 20.0%
             if percentage > 20.0:
                 matrix_output += f"* 🎯 **{disease}**: {percentage:.1f}%\n"
+                print(f"✅ [MATCH FOUND] Disease: {disease}, Confidence: {percentage:.1f}%")
                 has_matches = True
                 
         return matrix_output if has_matches else ""
